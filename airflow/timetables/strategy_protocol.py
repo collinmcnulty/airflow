@@ -24,12 +24,21 @@ class RunStrategy(Protocol):
     def calculate_run_after(self, last_automated_data_interval, restriction):
         raise NotImplementedError()
 
+    def serialize(self):
+        return {}
+
 
 class IntervalStrategy(Protocol):
     def calculate_interval(self, last_automated_data_interval, restriction, run_after):
         raise NotImplementedError()
 
+    def serialize(self):
+        return {}
+
 
 class ManualStrategy(Protocol):
     def calculate_manual_run(self, run_after, run_strategy, interval_strategy):
         raise NotImplementedError()
+
+    def serialize(self):
+        return {}
